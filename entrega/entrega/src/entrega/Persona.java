@@ -4,11 +4,13 @@ public class Persona {
 	private String rut;
 	private int age;
 	private String name;
+	private int numRegion;
 	
 	public Persona(){
 		name = "";
 		rut = "";
 		age = 0;
+		numRegion = 0;
 	}
 		
 	public void setName(String n) {
@@ -25,6 +27,11 @@ public class Persona {
 		return;
 	}
 	
+	public void setRegion(int a) {
+		numRegion = a;
+		return
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -35,6 +42,10 @@ public class Persona {
 	
 	public String getRut() {
 		return rut;
+	}
+	
+	public getRegion() {
+		return numRegion;
 	}
 	
 	

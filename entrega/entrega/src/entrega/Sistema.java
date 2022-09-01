@@ -5,7 +5,7 @@ import java.io.*;
 
 public class Sistema {
 	
-	public static void leertxt(Persona bi) throws IOException{
+/*	public static void leertxt(Persona bi) throws IOException{
 		String filePath = "personas.txt";
 		
 		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
@@ -22,7 +22,8 @@ public class Sistema {
 		
 		lectorTxt.close();
 	}
-	
+*/
+
 	public static void main( String arg[] ) throws IOException{
 		BufferedReader lector = new BufferedReader( new InputStreamReader( System.in ) );
 		String in;
@@ -36,9 +37,9 @@ public class Sistema {
 		int pLibre = 0;
 		
 		while(!exit) {
-			System.out.println("1-Ingresar contacto");
-			System.out.println("2-Mostrar contactos");
-			System.out.println("3-Buscar contacto");
+			System.out.println("1-Inscribir votante");
+			System.out.println("2-Consultar centro de votacion asignado");
+			System.out.println("3-Mostrar locales de votacion por region");
 			System.out.println("4-Salir");
 			in = lector.readLine();
 			

@@ -89,19 +89,15 @@ public class Sistema {
 				
 				case "2":{
 					System.out.println("Ingrese rut a buscar");
+					String aux;
 					in2 = lector.readLine();
+
+					System.out.println("Ingrese la region a la que pertenece: ");
+					aux = lector.readLine();
+					i = Integer.parseInt(aux);
 					
-					i = 0;
-					if(pLibre > 0) {
-						while (i < pLibre) {
-							if((contactos[i].getRut()).equals(in2)) {
-								found = true;
-								break;
-							}
-							i++;
-						}
-						
-					}
+					regiones[i].searchLocal(in2, i);
+
 					
 					if(!found) {
 						System.out.println("Usuario no encontrado");
@@ -127,6 +123,18 @@ public class Sistema {
 				
 				case "4":{
 					exit = true;
+				}
+				case "5":{
+					System.out.println("Ingrese numero de region a buscar");
+					in2 = lector.readLine();
+
+					String aux;
+					System.out.println("Ingrese la id del local");
+					aux = lector.readLine();
+					int id;
+					id = Integer.parseInt(aux);
+					
+					regiones[Integer.parseInt(in2)].searchLocal(id);
 				}
 				
 			}

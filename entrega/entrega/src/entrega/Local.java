@@ -47,5 +47,34 @@ public class Local {
 		inscritos++;
 		return;
 	}
+
+	public void search(String rut, int region){
+		
+		System.out.println("Paso 3:");
+		for(Persona i : personas) {
+			System.out.println("Paso 4:");
+			if (i.getRut().equals(rut)){
+				System.out.println("Se encontro");
+
+				System.out.println(i.getRut());
+			}
+		}
+
+			
+
+	}
+	public void showData(){
+		System.out.println("id: " + id);
+		System.out.println("Capacidad: " + capacidad);
+		System.out.println("Direccion: " + direccion);
+	}
+
+	public void showData(int id){
+		for(Persona i: personas){
+			i.showData();
+		}
+		
+
+	}
 	
 }

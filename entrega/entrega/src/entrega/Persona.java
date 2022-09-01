@@ -29,7 +29,7 @@ public class Persona {
 	
 	public void setRegion(int a) {
 		numRegion = a;
-		return
+		return;
 	}
 	
 	public String getName() {
@@ -44,9 +44,10 @@ public class Persona {
 		return rut;
 	}
 	
-	public getRegion() {
+	public int getRegion() {
 		return numRegion;
 	}
+	
 	
 	
 	public void showData() {

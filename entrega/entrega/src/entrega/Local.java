@@ -5,12 +5,23 @@ public class Local {
 	private int id;
 	private ArrayList<Persona> personas;
 	
+	private int capacidad;
+	private int inscritos;
 	
+	public Local() {
+		capacidad = 10;
+		inscritos = 0;
+		direccion = "";
+		id = 0;
+		personas = new ArrayList<Persona>();
+	}
 	
-	public Local(String direccion, int id) {
+	public Local(String direccion, int id, int cap) {
+		this.capacidad = cap;
+		inscritos = 0;
 		this.direccion = direccion;
 		this.id = id;
-		personas = new ArrayList<Persona>(15);
+		personas = new ArrayList<Persona>();
 		
 	}
 	
@@ -27,5 +38,14 @@ public class Local {
 		this.id = id;
 	}
 	
+	public int getInscritos() {
+		return inscritos;
+	}
+	
+	public void agregarPersona(Persona p) {
+		personas.add(p);
+		inscritos++;
+		return;
+	}
 	
 }

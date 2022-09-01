@@ -6,6 +6,11 @@ public class Local {
 	private ArrayList<Persona> personas;
 	
 	
+	public Local() {
+		direccion = "";
+		id = 0;
+		personas = new ArrayList<Persona>(15);
+	}
 	
 	public Local(String direccion, int id) {
 		this.direccion = direccion;
@@ -27,5 +32,9 @@ public class Local {
 		this.id = id;
 	}
 	
+	public void agregarPersona(Persona p) {
+		personas.add(p);
+		return;
+	}
 	
 }

@@ -25,15 +25,23 @@ public class Sistema {
 */
 
 	public static void main( String arg[] ) throws IOException{
+		//Lector y variables para leer
 		BufferedReader lector = new BufferedReader( new InputStreamReader( System.in ) );
 		String in;
 		String in2;
+		
 		boolean exit = false;
 		int i = 0;
 		boolean found = false;
 		Persona[] contactos = new Persona[30];
 		
 
+		//Inicializar regiones
+		Region regiones[] = new Region[16];
+		for(int j = 0; j< 16; j++) {
+			regiones[j].setNum(j);
+		}
+		
 		int pLibre = 0;
 		
 		while(!exit) {
@@ -46,23 +54,33 @@ public class Sistema {
 			switch (in){
 				
 				case "1":{
-					Persona contacto;
-					contacto = new Persona();
+					Persona votante;
+					votante = new Persona();
 					
-					System.out.println("Ingrese nombre");
+					System.out.println("Ingrese numero de region donde reside");
 					in2 = lector.readLine();
-					contacto.setName(in2);
+					votante.setRegion(Integer.parseInt(in2));
 					
-					System.out.println("Ingrese rut");
-					in2 = lector.readLine();
-					contacto.setRut(in2);
-					
-					System.out.println("edad");
-					in2 = lector.readLine();
-					contacto.setAge(Integer.parseInt(in2));
-					
-					contactos[pLibre] = contacto;
-					pLibre++;
+					if(Integer.parseInt(in2) > 0 && Integer.parseInt(in2) < 17) {
+						
+						System.out.println("Ingrese nombre");
+						in2 = lector.readLine();
+						votante.setName(in2);
+						
+						System.out.println("Ingrese rut");
+						in2 = lector.readLine();
+						votante.setRut(in2);
+						
+						System.out.println("Ingrese edad");
+						in2 = lector.readLine();
+						votante.setAge(Integer.parseInt(in2));
+						
+						contactos[pLibre] = contacto;
+						pLibre++;
+						
+					}else {
+						System.out.println("Region no válida");
+					}
 					
 					break;
 					

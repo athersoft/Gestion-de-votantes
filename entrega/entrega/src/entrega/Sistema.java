@@ -39,7 +39,8 @@ public class Sistema {
 		//Inicializar regiones
 		Region regiones[] = new Region[16];
 		for(int j = 0; j< 16; j++) {
-			regiones[j].setNum(j);
+			regiones[j] = new Region(j,"region");
+			//regiones[j].setNum(j);
 		}
 		
 		int pLibre = 0;

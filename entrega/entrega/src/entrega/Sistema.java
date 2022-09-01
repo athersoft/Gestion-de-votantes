@@ -45,6 +45,7 @@ public class Sistema {
 		int pLibre = 0;
 		
 		while(!exit) {
+			//Opciones del menú
 			System.out.println("1-Inscribir votante");
 			System.out.println("2-Consultar centro de votacion asignado");
 			System.out.println("3-Mostrar locales de votacion por region");
@@ -75,8 +76,9 @@ public class Sistema {
 						in2 = lector.readLine();
 						votante.setAge(Integer.parseInt(in2));
 						
-						contactos[pLibre] = contacto;
-						pLibre++;
+						regiones[votante.getRegion()-1].asignarLocal(votante);
+						//contactos[pLibre] = votante;
+						//pLibre++;
 						
 					}else {
 						System.out.println("Region no válida");

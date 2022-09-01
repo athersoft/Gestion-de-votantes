@@ -29,4 +29,11 @@ public class Region {
 		return num;
 	}
 	
+	public void asignarLocal(Persona votante) {
+		
+	}
+
+	public void asignarLocal(Persona votante, int pos) {
+		locales.get(pos).agregarPersona(votante);
+	}
 }

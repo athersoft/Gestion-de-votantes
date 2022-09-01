@@ -36,4 +36,14 @@ public class Region {
 	public void asignarLocal(Persona votante, int pos) {
 		locales.get(pos).agregarPersona(votante);
 	}
+	
+	public void mostrarLocales() {
+		for(Local i : locales) {
+			System.out.println("Local numero:");
+			System.out.println("Numero de personas asignadas");
+			i.getInscritos();
+		}
+		return;
+	}
+	
 }

@@ -78,8 +78,6 @@ public class Sistema {
 						votante.setAge(Integer.parseInt(in2));
 						
 						regiones[votante.getRegion()-1].asignarLocal(votante);
-						//contactos[pLibre] = votante;
-						//pLibre++;
 						
 					}else {
 						System.out.println("Region no válida");
@@ -90,20 +88,6 @@ public class Sistema {
 				}
 				
 				case "2":{
-					i = 0;
-					if(pLibre > 0) {
-						while (i < pLibre) {
-							System.out.println("");
-							contactos[i].showData();
-							i++;
-							System.out.println("");
-						}
-					}
-					break;
-				}
-				
-				
-				case "3":{
 					System.out.println("Ingrese rut a buscar");
 					in2 = lector.readLine();
 					
@@ -130,6 +114,16 @@ public class Sistema {
 					break;
 					
 				}
+				
+				case "3":{
+					System.out.println("Ingrese numero de region a buscar");
+					in2 = lector.readLine();
+					
+					regiones[Integer.parseInt(in2)].mostrarLocales();
+				}
+				
+				
+				
 				
 				case "4":{
 					exit = true;

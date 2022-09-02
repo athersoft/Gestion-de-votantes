@@ -50,9 +50,10 @@ public class Sistema {
 		while(!exit) {
 			//Opciones del menú
 			System.out.println("1-Inscribir votante");
-			System.out.println("2-Consultar centro de votacion asignado");
-			System.out.println("3-Mostrar locales de votacion por region");
-			System.out.println("4-Salir");
+			System.out.println("2-Agregar centro de votacion");
+			System.out.println("3-Consultar centro de votacion asignado");
+			System.out.println("4-Mostrar locales de votacion por region");
+			System.out.println("5-Salir");
 			in = lector.readLine();
 			
 			switch (in){
@@ -90,6 +91,29 @@ public class Sistema {
 				}
 				
 				case "2":{
+					Local local = new Local();
+					
+					System.out.println("Ingrese id del local");
+					in2 = lector.readLine();
+					local.setId(Integer.parseInt(in2));
+					
+					System.out.println("Ingrese capacidad maxima");
+					in2 = lector.readLine();
+					local.setCapacidad(Integer.parseInt(in2));
+					
+					System.out.println("Ingrese direccion");
+					in2 = lector.readLine();
+					local.setDireccion(in2);
+					
+					System.out.println("Ingrese numero de region");
+					in2 = lector.readLine();
+					
+					regiones.get(Integer.parseInt(in2)).agregarLocal(local);
+					
+					System.out.println("Local agregado correctamente");
+				}
+				
+				case "3":{
 					System.out.println("Ingrese rut a buscar");
 					in2 = lector.readLine();
 					
@@ -117,7 +141,7 @@ public class Sistema {
 					
 				}
 				
-				case "3":{
+				case "4":{
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
 					
@@ -127,7 +151,7 @@ public class Sistema {
 				
 				
 				
-				case "4":{
+				case "5":{
 					exit = true;
 				}
 				

@@ -38,6 +38,14 @@ public class Local {
 		this.id = id;
 	}
 	
+	public void setCapacidad(int i) {
+		this.capacidad = i;
+	}
+	
+	public int getCapacidad() {
+		return capacidad;
+	}
+	
 	public int getInscritos() {
 		return inscritos;
 	}

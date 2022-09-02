@@ -2,6 +2,7 @@ package entrega;
 
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
+import java.util.Hashtable;
 
 public class Sistema {
 	
@@ -37,10 +38,11 @@ public class Sistema {
 		
 
 		//Inicializar regiones
-		Region regiones[] = new Region[16];
+		
+		Hashtable <Integer, Region> regiones = new Hashtable<Integer,Region>();
+
 		for(int j = 0; j< 16; j++) {
-			regiones[j] = new Region(j,"region");
-			//regiones[j].setNum(j);
+			regiones.put(j, new Region(j, "") );
 		}
 		
 		int pLibre = 0;
@@ -77,7 +79,7 @@ public class Sistema {
 						in2 = lector.readLine();
 						votante.setAge(Integer.parseInt(in2));
 						
-						regiones[votante.getRegion()-1].asignarLocal(votante);
+						regiones.get(votante.getRegion()-1).asignarLocal(votante);
 						
 					}else {
 						System.out.println("Region no válida");
@@ -119,7 +121,7 @@ public class Sistema {
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
 					
-					regiones[Integer.parseInt(in2)].mostrarLocales();
+					regiones.get(Integer.parseInt(in2)).mostrarLocales();
 				}
 				
 				

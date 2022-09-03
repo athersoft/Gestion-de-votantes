@@ -63,6 +63,7 @@ public class Local {
 			
 
 	}
+	
 	public void showData(){
 		System.out.println("id: " + id);
 		System.out.println("Capacidad: " + capacidad);

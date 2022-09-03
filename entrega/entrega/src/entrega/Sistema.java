@@ -32,11 +32,7 @@ public class Sistema {
 		String in2;
 		
 		boolean exit = false;
-		int i = 0;
-		boolean found = false;
-		Persona[] contactos = new Persona[30];
 		
-
 		//Inicializar regiones
 		
 		Hashtable <Integer, Region> regiones = new Hashtable<Integer,Region>();
@@ -45,10 +41,10 @@ public class Sistema {
 			regiones.put(j, new Region(j, "") );
 		}
 		
-		int pLibre = 0;
 		
 		while(!exit) {
 			//Opciones del menú
+			
 			System.out.println("1-Inscribir votante");
 			System.out.println("2-Agregar centro de votacion");
 			System.out.println("3-Consultar centro de votacion asignado");
@@ -120,18 +116,8 @@ public class Sistema {
 
 					System.out.println("Ingrese la region a la que pertenece: ");
 					aux = lector.readLine();
-					i = Integer.parseInt(aux);
-					
-					regiones[i].searchLocal(in2, i);
+					regiones.get(Integer.parseInt(aux)).searchLocal(in2, Integer.parseInt(aux));
 
-					
-					if(!found) {
-						System.out.println("Usuario no encontrado");
-					}else {
-						contactos[i].showData();
-					}
-					
-					found = false;
 					
 					break;
 					
@@ -145,11 +131,7 @@ public class Sistema {
 				}
 				
 				
-				
-				
-				case "5":{
-					exit = true;
-				}
+				/*
 				case "5":{
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
@@ -160,7 +142,12 @@ public class Sistema {
 					int id;
 					id = Integer.parseInt(aux);
 					
-					regiones[Integer.parseInt(in2)].searchLocal(id);
+					regiones.get(Integer.parseInt(in2)).searchLocal(id);
+				}
+				*/
+				
+				case "5":{
+					exit = true;
 				}
 				
 			}

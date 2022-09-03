@@ -43,10 +43,12 @@ public class Region {
 	}
 	
 	public void mostrarLocales() {
-		for(Local i : locales) {
-			System.out.println("Local numero:");
-			System.out.println("Numero de personas asignadas");
-			i.getInscritos();
+		if(!locales.isEmpty()) {
+			for(Local i : locales) {
+				i.showData();
+			}
+		}else {
+			System.out.println("No hay locales inscritos en esta region");
 		}
 		return;
 	}
@@ -55,7 +57,7 @@ public class Region {
 		System.out.println("Paso 1:");
 		for(Local i : locales) {
 			System.out.println("Paso 2:");
-			i.search(rut, region);;
+			i.search(rut, region);
 		}
 		return;
 	}

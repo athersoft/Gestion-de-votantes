@@ -2,7 +2,7 @@ package entrega;
 
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class Sistema {
 	
@@ -34,12 +34,8 @@ public class Sistema {
 		boolean exit = false;
 		
 		//Inicializar regiones
+		MapaRegiones regiones = new MapaRegiones();
 		
-		Hashtable <Integer, Region> regiones = new Hashtable<Integer,Region>();
-
-		for(int j = 0; j< 16; j++) {
-			regiones.put(j, new Region(j, "") );
-		}
 		
 		
 		while(!exit) {
@@ -49,7 +45,8 @@ public class Sistema {
 			System.out.println("2-Agregar centro de votacion");
 			System.out.println("3-Consultar centro de votacion asignado");
 			System.out.println("4-Mostrar locales de votacion por region");
-			System.out.println("5-Salir");
+			System.out.println("5-Mostrar votantes por rango de edad");
+			System.out.println("6-Salir");
 			in = lector.readLine();
 			
 			switch (in){
@@ -116,7 +113,7 @@ public class Sistema {
 
 					System.out.println("Ingrese la region a la que pertenece: ");
 					aux = lector.readLine();
-					regiones.get(Integer.parseInt(aux)).searchLocal(in2, Integer.parseInt(aux));
+					regiones.mapa.get(Integer.parseInt(aux)).searchLocal(in2, Integer.parseInt(aux));
 
 					
 					break;

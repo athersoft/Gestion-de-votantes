@@ -71,6 +71,8 @@ public class Sistema {
 					regiones.agregarLocal(local, Integer.parseInt(in2));
 					
 					System.out.println("Local agregado correctamente");
+					
+					break;
 				}
 
 				
@@ -82,7 +84,7 @@ public class Sistema {
 
 					System.out.println("Ingrese la region a la que pertenece: ");
 					aux = lector.readLine();
-					regiones.buscarEnLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+					regiones.buscarEnLocal(in2, Integer.parseInt(aux));
 
 					break;
 					

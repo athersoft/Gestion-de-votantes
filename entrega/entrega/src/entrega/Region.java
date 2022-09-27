@@ -54,9 +54,7 @@ public class Region {
 	}
 
 	public void searchLocal(String rut) {
-		System.out.println("Paso 1:");
 		for(Local i : locales) {
-			System.out.println("Paso 2:");
 			i.search(rut);
 		}
 		return;

@@ -58,17 +58,16 @@ public class Local {
 
 	public void search(String rut){
 		
-		System.out.println("Paso 3:");
 		for(Persona i : personas) {
-			System.out.println("Paso 4:");
 			if (i.getRut().equals(rut)){
-				System.out.println("Se encontro");
-
-				System.out.println(i.getRut());
+				System.out.println(i.getName() + " " +i.getRut());
+				System.out.println("Asignado al local:" + id);
+				System.out.println("Direccion del local:"+direccion);
+				return;
 			}
 		}
 
-			
+		System.out.println("No tiene un local asignado");
 
 	}
 	public void showData(){

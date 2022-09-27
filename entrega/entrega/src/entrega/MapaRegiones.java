@@ -19,7 +19,7 @@ public class MapaRegiones {
 		mapa.get(region).agregarLocal(local);
 	}
 	
-	public void buscarEnLocal(int rut, int region) {
+	public void buscarEnLocal(String rut, int region) {
 		mapa.get(region).searchLocal(rut);
 	}
 	

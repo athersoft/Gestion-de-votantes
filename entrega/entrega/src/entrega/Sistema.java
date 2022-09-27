@@ -35,7 +35,7 @@ public class Sistema {
 		
 		//Inicializar regiones
 		MapaRegiones regiones = new MapaRegiones();
-		
+		Creador crear = new Creador();
 		
 		
 		while(!exit) {
@@ -50,54 +50,21 @@ public class Sistema {
 			in = lector.readLine();
 			
 			switch (in){
-				
+			
+				/////////////Inscribir Votante//////////////////////
 				case "1":{
-					Persona votante;
-					votante = new Persona();
 					
-					System.out.println("Ingrese numero de region donde reside");
-					in2 = lector.readLine();
-					votante.setRegion(Integer.parseInt(in2));
-					
-					if(Integer.parseInt(in2) > 0 && Integer.parseInt(in2) < 17) {
-						
-						System.out.println("Ingrese nombre");
-						in2 = lector.readLine();
-						votante.setName(in2);
-						
-						System.out.println("Ingrese rut");
-						in2 = lector.readLine();
-						votante.setRut(in2);
-						
-						System.out.println("Ingrese edad");
-						in2 = lector.readLine();
-						votante.setAge(Integer.parseInt(in2));
-						
-						regiones.asignarLocal(votante, votante.getRegion()-1);
-						
-					}else {
-						System.out.println("Region no válida");
-					}
+					Persona votante = crear.persona();
+					regiones.asignarLocal(votante, votante.getRegion()-1);
 					
 					break;
 					
 				}
+
 				
+				////////////////Agregar centro de votacion//////////////
 				case "2":{
-					Local local = new Local();
-					
-					System.out.println("Ingrese id del local");
-					in2 = lector.readLine();
-					local.setId(Integer.parseInt(in2));
-					
-					System.out.println("Ingrese capacidad maxima");
-					in2 = lector.readLine();
-					local.setCapacidad(Integer.parseInt(in2));
-					
-					System.out.println("Ingrese direccion");
-					in2 = lector.readLine();
-					local.setDireccion(in2);
-					
+					Local local = crear.local();
 					System.out.println("Ingrese numero de region");
 					in2 = lector.readLine();
 					
@@ -105,7 +72,9 @@ public class Sistema {
 					
 					System.out.println("Local agregado correctamente");
 				}
+
 				
+				///////////////Consultar local asignado////////////////////
 				case "3":{
 					System.out.println("Ingrese rut a buscar");
 					String aux;
@@ -119,6 +88,8 @@ public class Sistema {
 					
 				}
 				
+				
+				///////////////////Mostrar locales de una region////////////////////
 				case "4":{
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
@@ -142,7 +113,7 @@ public class Sistema {
 				}
 				*/
 				
-				case "5":{
+				case "6":{
 					exit = true;
 				}
 				

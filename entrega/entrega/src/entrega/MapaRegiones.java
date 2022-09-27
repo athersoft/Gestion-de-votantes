@@ -10,5 +10,8 @@ public class MapaRegiones {
 			mapa.put(j, new Region(j, "") );
 		}
 	}
-	
+
+	public void asignarLocal(Persona p, int num) {
+		mapa.get(num).asignarLocal(p);
+	}
 }

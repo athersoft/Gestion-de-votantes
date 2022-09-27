@@ -73,7 +73,7 @@ public class Sistema {
 						in2 = lector.readLine();
 						votante.setAge(Integer.parseInt(in2));
 						
-						regiones.get(votante.getRegion()-1).asignarLocal(votante);
+						regiones.asignarLocal(votante, votante.getRegion()-1);
 						
 					}else {
 						System.out.println("Region no válida");

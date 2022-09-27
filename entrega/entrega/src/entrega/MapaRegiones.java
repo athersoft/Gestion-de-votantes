@@ -26,4 +26,6 @@ public class MapaRegiones {
 	public void mostrarLocales(int region) {
 		mapa.get(region).mostrarLocales();
 	}
+
+	
 }

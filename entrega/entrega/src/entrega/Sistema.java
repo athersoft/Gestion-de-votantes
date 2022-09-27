@@ -99,6 +99,17 @@ public class Sistema {
 					break;
 				}
 				
+				case "5":{
+					String aux;
+					System.out.println("Ingrese minima edad a mostrar");
+					in2 = lector.readLine();
+					System.out.println("Ingrese maxima edad a mostrar");
+					aux = lector.readLine();
+					
+					
+					
+					break;
+				}
 				
 				/*
 				case "5":{

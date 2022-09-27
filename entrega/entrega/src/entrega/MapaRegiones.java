@@ -11,7 +11,19 @@ public class MapaRegiones {
 		}
 	}
 
-	public void asignarLocal(Persona p, int num) {
-		mapa.get(num).asignarLocal(p);
+	public void asignarLocal(Persona p, int region) {
+		mapa.get(region).asignarLocal(p);
+	}
+	
+	public void agregarLocal(Local local, int region) {
+		mapa.get(region).agregarLocal(local);
+	}
+	
+	public void buscarEnLocal(int rut, int region) {
+		mapa.get(region).searchLocal(rut);
+	}
+	
+	public void mostrarLocales(int region) {
+		mapa.get(region).mostrarLocales();
 	}
 }

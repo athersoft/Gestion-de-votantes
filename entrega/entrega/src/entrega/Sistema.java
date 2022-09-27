@@ -101,7 +101,7 @@ public class Sistema {
 					System.out.println("Ingrese numero de region");
 					in2 = lector.readLine();
 					
-					regiones.get(Integer.parseInt(in2)).agregarLocal(local);
+					regiones.agregarLocal(local, Integer.parseInt(in2));
 					
 					System.out.println("Local agregado correctamente");
 				}
@@ -113,9 +113,8 @@ public class Sistema {
 
 					System.out.println("Ingrese la region a la que pertenece: ");
 					aux = lector.readLine();
-					regiones.mapa.get(Integer.parseInt(aux)).searchLocal(in2, Integer.parseInt(aux));
+					regiones.buscarEnLocal(Integer.parseInt(in2), Integer.parseInt(aux));
 
-					
 					break;
 					
 				}
@@ -123,8 +122,8 @@ public class Sistema {
 				case "4":{
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
-					
-					regiones.get(Integer.parseInt(in2)).mostrarLocales();
+					regiones.mostrarLocales(Integer.parseInt(in2));
+					break;
 				}
 				
 				

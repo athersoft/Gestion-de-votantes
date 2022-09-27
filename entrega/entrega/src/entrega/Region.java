@@ -53,11 +53,11 @@ public class Region {
 		return;
 	}
 
-	public void searchLocal(String rut, int region) {
+	public void searchLocal(String rut) {
 		System.out.println("Paso 1:");
 		for(Local i : locales) {
 			System.out.println("Paso 2:");
-			i.search(rut, region);
+			i.search(rut);
 		}
 		return;
 	}

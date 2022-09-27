@@ -56,7 +56,7 @@ public class Local {
 		return;
 	}
 
-	public void search(String rut, int region){
+	public void search(String rut){
 		
 		System.out.println("Paso 3:");
 		for(Persona i : personas) {

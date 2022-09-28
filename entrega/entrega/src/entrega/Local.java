@@ -3,17 +3,19 @@ import java.util.*;
 public class Local {
 	private String direccion;
 	private int id;
-	private ArrayList<Persona> personas;
+	
 	
 	private int capacidad;
 	private int inscritos;
+	
+	private ListaPersonas votantes;
 	
 	public Local() {
 		capacidad = 10;
 		inscritos = 0;
 		direccion = "";
 		id = 0;
-		personas = new ArrayList<Persona>();
+		votantes = new ListaPersonas();
 	}
 	
 	public Local(String direccion, int id, int cap) {
@@ -21,7 +23,7 @@ public class Local {
 		inscritos = 0;
 		this.direccion = direccion;
 		this.id = id;
-		personas = new ArrayList<Persona>();
+		votantes = new ListaPersonas();
 		
 	}
 	
@@ -51,25 +53,24 @@ public class Local {
 	}
 	
 	public void agregarPersona(Persona p) {
-		personas.add(p);
+		votantes.add(p);
 		inscritos++;
 		return;
 	}
 
 	public void search(String rut){
-		
-		for(Persona i : personas) {
-			if (i.getRut().equals(rut)){
-				System.out.println(i.getName() + " " +i.getRut());
-				System.out.println("Asignado al local:" + id);
-				System.out.println("Direccion del local:"+direccion);
-				return;
-			}
+		Persona p = votantes.buscarPersona(rut);
+		if (p != null){
+			System.out.println(p.getName() + " " +p.getRut());
+			System.out.println("Asignado al local:" + id);
+			System.out.println("Direccion del local:"+direccion);
+			return;
 		}
 
 		System.out.println("No tiene un local asignado");
 
 	}
+	
 	public void showData(){
 		System.out.println("id: " + id);
 		System.out.println("Capacidad: " + capacidad);
@@ -77,11 +78,7 @@ public class Local {
 	}
 
 	public void showData(int id){
-		for(Persona i: personas){
-			i.showData();
-		}
-		
-
+		votantes.mostrarLista();
 	}
 	
 }

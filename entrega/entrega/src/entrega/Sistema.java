@@ -35,12 +35,14 @@ public class Sistema {
 		
 		//Inicializar regiones
 		MapaRegiones regiones = new MapaRegiones();
+		ListaPersonas votantes = new ListaPersonas();
 		Creador crear = new Creador();
 		
 		
 		while(!exit) {
 			//Opciones del menú
 			
+			System.out.println("--------Sistema electoral---------\n");
 			System.out.println("1-Inscribir votante");
 			System.out.println("2-Agregar centro de votacion");
 			System.out.println("3-Consultar centro de votacion asignado");
@@ -55,6 +57,7 @@ public class Sistema {
 				case "1":{
 					
 					Persona votante = crear.persona();
+					votantes.add(votante);
 					regiones.asignarLocal(votante, votante.getRegion()-1);
 					
 					break;
@@ -99,6 +102,7 @@ public class Sistema {
 					break;
 				}
 				
+				//////////////////Mostrar Personas en un rango de edad//////////////
 				case "5":{
 					String aux;
 					System.out.println("Ingrese minima edad a mostrar");
@@ -106,7 +110,7 @@ public class Sistema {
 					System.out.println("Ingrese maxima edad a mostrar");
 					aux = lector.readLine();
 					
-					
+					votantes.mostrarPorEdad(Integer.parseInt(in2), Integer.parseInt(aux));
 					
 					break;
 				}

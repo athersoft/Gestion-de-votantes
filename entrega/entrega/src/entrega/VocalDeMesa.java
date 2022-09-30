@@ -30,5 +30,13 @@ public class VocalDeMesa extends Persona{
 		this.presente = presente;
 	}
 	
+	public void showData() {
+		System.out.println("Nombre: " + getName());
+		System.out.println("Edad: " + getAge());
+		System.out.println("Rut: " + getRut());
+		System.out.println("Cargo: " + cargo);
+		System.out.println("Presente:" + presente);
+		return;
+	}
 	
 }

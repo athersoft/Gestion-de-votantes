@@ -38,7 +38,6 @@ public class Sistema {
 		ListaPersonas votantes = new ListaPersonas();
 		Creador crear = new Creador();
 		
-		
 		while(!exit) {
 			//Opciones del menú
 			

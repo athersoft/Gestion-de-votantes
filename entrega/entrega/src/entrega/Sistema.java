@@ -2,7 +2,7 @@ package entrega;
 
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class Sistema {
 	
@@ -34,81 +34,51 @@ public class Sistema {
 		boolean exit = false;
 		
 		//Inicializar regiones
-		
-		Hashtable <Integer, Region> regiones = new Hashtable<Integer,Region>();
-
-		for(int j = 0; j< 16; j++) {
-			regiones.put(j, new Region(j, "") );
-		}
-		
+		MapaRegiones regiones = new MapaRegiones();
+		ListaPersonas votantes = new ListaPersonas();
+		Creador crear = new Creador();
 		
 		while(!exit) {
 			//Opciones del menú
 			
+			System.out.println("--------Sistema electoral---------\n");
 			System.out.println("1-Inscribir votante");
 			System.out.println("2-Agregar centro de votacion");
 			System.out.println("3-Consultar centro de votacion asignado");
 			System.out.println("4-Mostrar locales de votacion por region");
-			System.out.println("5-Salir");
+			System.out.println("5-Mostrar votantes por rango de edad");
+			System.out.println("6-Salir");
 			in = lector.readLine();
 			
 			switch (in){
-				
+			
+				/////////////Inscribir Votante//////////////////////
 				case "1":{
-					Persona votante;
-					votante = new Persona();
 					
-					System.out.println("Ingrese numero de region donde reside");
-					in2 = lector.readLine();
-					votante.setRegion(Integer.parseInt(in2));
-					
-					if(Integer.parseInt(in2) > 0 && Integer.parseInt(in2) < 17) {
-						
-						System.out.println("Ingrese nombre");
-						in2 = lector.readLine();
-						votante.setName(in2);
-						
-						System.out.println("Ingrese rut");
-						in2 = lector.readLine();
-						votante.setRut(in2);
-						
-						System.out.println("Ingrese edad");
-						in2 = lector.readLine();
-						votante.setAge(Integer.parseInt(in2));
-						
-						regiones.get(votante.getRegion()-1).asignarLocal(votante);
-						
-					}else {
-						System.out.println("Region no válida");
-					}
+					Persona votante = crear.persona();
+					votantes.add(votante);
+					regiones.asignarLocal(votante, votante.getRegion()-1);
 					
 					break;
 					
 				}
+
 				
+				////////////////Agregar centro de votacion//////////////
 				case "2":{
-					Local local = new Local();
-					
-					System.out.println("Ingrese id del local");
-					in2 = lector.readLine();
-					local.setId(Integer.parseInt(in2));
-					
-					System.out.println("Ingrese capacidad maxima");
-					in2 = lector.readLine();
-					local.setCapacidad(Integer.parseInt(in2));
-					
-					System.out.println("Ingrese direccion");
-					in2 = lector.readLine();
-					local.setDireccion(in2);
-					
+					Local local = crear.local();
 					System.out.println("Ingrese numero de region");
 					in2 = lector.readLine();
 					
-					regiones.get(Integer.parseInt(in2)).agregarLocal(local);
+					regiones.agregarLocal(local, Integer.parseInt(in2));
 					
 					System.out.println("Local agregado correctamente");
+					
+					break;
 				}
+
 				
+				///////////////Consultar local asignado////////////////////
 				case "3":{
 					System.out.println("Ingrese rut a buscar");
 					String aux;
@@ -116,20 +86,33 @@ public class Sistema {
 
 					System.out.println("Ingrese la region a la que pertenece: ");
 					aux = lector.readLine();
-					regiones.get(Integer.parseInt(aux)).searchLocal(in2, Integer.parseInt(aux));
+					regiones.buscarEnLocal(in2, Integer.parseInt(aux));
 
-					
 					break;
 					
 				}
 				
+				
+				///////////////////Mostrar locales de una region////////////////////
 				case "4":{
 					System.out.println("Ingrese numero de region a buscar");
 					in2 = lector.readLine();
-					
-					regiones.get(Integer.parseInt(in2)).mostrarLocales();
+					regiones.mostrarLocales(Integer.parseInt(in2));
+					break;
 				}
 				
+				//////////////////Mostrar Personas en un rango de edad//////////////
+				case "5":{
+					String aux;
+					System.out.println("Ingrese minima edad a mostrar");
+					in2 = lector.readLine();
+					System.out.println("Ingrese maxima edad a mostrar");
+					aux = lector.readLine();
+					
+					votantes.mostrarPorEdad(Integer.parseInt(in2), Integer.parseInt(aux));
+					
+					break;
+				}
 				
 				/*
 				case "5":{
@@ -146,7 +129,7 @@ public class Sistema {
 				}
 				*/
 				
-				case "5":{
+				case "6":{
 					exit = true;
 				}
 				

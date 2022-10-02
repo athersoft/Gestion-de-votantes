@@ -47,6 +47,9 @@ public class ListaPersonas {
 	}
 	
 	public void mostrarLista() {
+		if(personas.size() == 0) {
+			System.out.println("\nNo hay personas en esta listan");
+		}
 		for(Persona i: personas){
 			i.showData();
 		}

@@ -50,8 +50,9 @@ public class Sistema {
 			System.out.println("5-Eliminar centro de votacion");
 			System.out.println("6-Consultar centro de votacion asignado");
 			System.out.println("7-Mostrar locales de votacion por region");
-			System.out.println("8-Mostrar votantes por rango de edad");
-			System.out.println("9-Salir");
+			System.out.println("8-Mostrar personas en el sistema");
+			System.out.println("9-Mostrar votantes por rango de edad");
+			System.out.println("10-Salir");
 			in = lector.readLine();
 			
 			switch (in){
@@ -147,8 +148,20 @@ public class Sistema {
 					break;
 				}
 				
-				//////////////////Mostrar Personas en un rango de edad//////////////
+				////////////////Mostrar todas las personas////////////
 				case "8":{
+					System.out.println("\nPersonas inscritas");
+					votantes.mostrarLista();
+					
+					System.out.println("\nPersonas no inscritas");
+					votantesSinAsignar.mostrarLista();
+					
+					break;
+				}
+				
+				
+				//////////////////Mostrar Personas en un rango de edad//////////////
+				case "9":{
 					String aux;
 					System.out.println("Ingrese minima edad a mostrar");
 					in2 = lector.readLine();
@@ -175,7 +188,7 @@ public class Sistema {
 				}
 				*/
 				
-				case "9":{
+				case "10":{
 					exit = true;
 				}
 				

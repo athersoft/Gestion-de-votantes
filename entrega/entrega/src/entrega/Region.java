@@ -33,13 +33,9 @@ public class Region {
 		locales.add(local);
 	}
 	
-	public void asignarLocal(Persona votante) {
-		//locales.get(pos).agregarPersona(votante);
-		
-	}
 
-	public void asignarLocal(Persona votante, int pos) {
-		locales.get(pos).agregarPersona(votante);
+	public void asignarLocal(Persona votante) {
+		locales.get(0).agregarPersona(votante);
 	}
 	
 	public void mostrarLocales() {
@@ -88,6 +84,13 @@ public class Region {
 			}
 			
 		}
+	}
+	
+	public boolean hayLocales() {
+		if(locales.size() == 0) {
+			return false;
+		}
+		return true;
 	}
 	
 }

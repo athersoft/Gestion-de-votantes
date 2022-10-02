@@ -17,8 +17,12 @@ public class MapaRegiones {
 		while(!exit) {
 			aux = p.getCurrent();
 			if(aux != null) {
-				mapa.get(aux.getRegion()-1).asignarLocal(aux, aux.getRegion()-1);
-				p.deleteCurrent();
+				if(mapa.get(aux.getRegion()).hayLocales()) {
+					mapa.get(aux.getRegion()).asignarLocal(aux);
+					p.deleteCurrent();
+				}else {
+					p.next();
+				}
 			}else {
 				return;
 			}

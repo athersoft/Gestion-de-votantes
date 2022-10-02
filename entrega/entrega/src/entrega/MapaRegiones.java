@@ -34,6 +34,19 @@ public class MapaRegiones {
 		return;
 	}
 	
+	public void asignarPersonas(ListaPersonas p) {
+		Persona aux;
+		while(true) {
+			if(p.getCurrent() != null) {
+				aux = p.getCurrent();
+				asignarLocal(aux, aux.getRegion());
+				p.next();
+			}else {
+				return;
+			}
+		}
+	}
+	
 	
 	
 	

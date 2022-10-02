@@ -1,6 +1,8 @@
 package entrega;
-
+import java.io.File;
 import java.util.ArrayList;
+import java.io.IOException; 
+import java.io.FileWriter;
 
 public class ListaPersonas {
 
@@ -110,4 +112,37 @@ public class ListaPersonas {
 		return;
 	}
 	
+	public void guardar(String nombreArchivo) {
+		try{
+			File myObj = new File(nombreArchivo);
+			if (myObj.createNewFile()) {
+				FileWriter myWriter = new FileWriter(nombreArchivo);
+				 for(Persona i: personas) {
+					 myWriter.write(i.getRegion()+",");
+					 myWriter.write(i.getName()+",");
+					 myWriter.write(i.getAge()+",");
+					 myWriter.write(i.getRut()+",");
+					 myWriter.write("\n");
+				 }
+				 myWriter.close();
+				 return;
+			}else{
+				myObj.delete();
+				myObj.createNewFile();
+				FileWriter myWriter = new FileWriter(nombreArchivo);
+				 for(Persona i: personas) {
+					 myWriter.write(i.getRegion()+",");
+					 myWriter.write(i.getName()+",");
+					 myWriter.write(i.getAge()+",");
+					 myWriter.write(i.getRut());
+					 myWriter.write("\n");
+				 }
+				 myWriter.close();
+				 return;
+			}
+		}catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
 }

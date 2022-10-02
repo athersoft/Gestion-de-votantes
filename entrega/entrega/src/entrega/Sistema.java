@@ -85,6 +85,8 @@ public class Sistema {
 		cargarInscritos(votantes);
 		cargarLocales(regiones);
 		
+		regiones.asignarPersonas(votantes);
+		
 		while(!exit) {
 			//Opciones del menú
 			
@@ -128,6 +130,14 @@ public class Sistema {
 					
 					regiones.agregarLocal(local, Integer.parseInt(in2));
 					
+					FileWriter myWriter = new FileWriter("Locales.txt",true);
+					myWriter.append(in2+",");
+					myWriter.append(local.getId()+",");
+					myWriter.append(local.getCapacidad()+",");
+					myWriter.append(local.getDireccion()+"");
+					myWriter.append("\n");
+					myWriter.close();
+					 
 					System.out.println("Local agregado correctamente");
 					
 					break;
@@ -234,12 +244,11 @@ public class Sistema {
 				*/
 				
 				case "10":{
+					votantes.guardar("personasInscritas.txt");
+					votantesSinAsignar.guardar("personasNoInscritas.txt");
 					exit = true;
 				}
 				
-				case "11":{
-					
-				}
 				
 			}
 		}

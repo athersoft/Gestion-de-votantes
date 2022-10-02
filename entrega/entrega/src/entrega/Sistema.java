@@ -42,7 +42,7 @@ public class Sistema {
 		while(!exit) {
 			//Opciones del menú
 			
-			System.out.println("--------Sistema electoral---------\n");
+			System.out.println("\n--------Sistema electoral---------\n");
 			System.out.println("1-Inscribir votante");
 			System.out.println("2-Asignar votantes");
 			System.out.println("3-Agregar centro de votacion");
@@ -87,6 +87,7 @@ public class Sistema {
 					break;
 				}
 				
+				///////////////Modificar local de votacion////////////////
 				case "4":{
 					String aux;
 					System.out.println("Ingrese region");
@@ -102,6 +103,23 @@ public class Sistema {
 					regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
 					
 					regiones.agregarLocal(local, Integer.parseInt(in2));
+					
+					break;
+				}
+				
+				///////////////Eliminar local//////////////////////////
+				case "5":{
+					String aux;
+					System.out.println("Ingrese region");
+					in2 = lector.readLine();
+					System.out.println("Ingrese id de local a eliminar");
+					aux = lector.readLine();
+					
+					if(regiones.buscarLocal(Integer.parseInt(in2), Integer.parseInt(aux)) != null) {
+						regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+					}
+					
+					System.out.println("Local Eliminado");
 					
 					break;
 				}

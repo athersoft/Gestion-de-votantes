@@ -9,6 +9,7 @@ public class Local {
 	private int inscritos;
 	
 	private ListaPersonas votantes;
+	private ListaMiembrosDeMesa miembros;
 	
 	public Local() {
 		capacidad = 10;
@@ -16,6 +17,7 @@ public class Local {
 		direccion = "";
 		id = 0;
 		votantes = new ListaPersonas();
+		miembros = new ListaMiembrosDeMesa();
 	}
 	
 	public Local(String direccion, int id, int cap) {
@@ -71,14 +73,20 @@ public class Local {
 
 	}
 	
-	public void showData(){
-		System.out.println("id: " + id);
-		System.out.println("Capacidad: " + capacidad);
-		System.out.println("Direccion: " + direccion);
-	}
 
 	public void showData(int id){
 		votantes.mostrarLista();
 	}
 	
+	public void mostrarMiembros() {
+		miembros.mostrarLista();
+	}
+	
+	public void showData(){
+		System.out.println("id: " + id);
+		System.out.println("Capacidad: " + capacidad);
+		System.out.println("Direccion: " + direccion);
+		System.out.println("Miembros de mesa: ");
+		mostrarMiembros();
+	}
 }

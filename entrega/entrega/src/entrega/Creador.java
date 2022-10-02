@@ -56,5 +56,27 @@ public class Creador {
 		return local;
 	}
 	
-	
+	public Local modificarLocal(Local l) throws IOException{
+		System.out.println("Deje vacío los campos que no quiera modificar");
+		
+		System.out.println("Ingrese nuevo id para el local");
+		in = lector.readLine();
+		if(!in.equals("")) {
+			l.setId(Integer.parseInt(in));
+		}
+		
+		System.out.println("Ingrese nueva capacidad maxima");
+		in = lector.readLine();
+		if(!in.equals("")) {
+			l.setCapacidad(Integer.parseInt(in));
+		}
+		
+		System.out.println("Ingrese nueva direccion");
+		in = lector.readLine();
+		if(!in.equals("")) {
+			l.setDireccion(in);
+		}
+		
+		return l;
+	}
 }

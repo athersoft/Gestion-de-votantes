@@ -33,13 +33,9 @@ public class Region {
 		locales.add(local);
 	}
 	
-	public void asignarLocal(Persona votante) {
-		//locales.get(pos).agregarPersona(votante);
-		
-	}
 
-	public void asignarLocal(Persona votante, int pos) {
-		locales.get(pos).agregarPersona(votante);
+	public void asignarLocal(Persona votante) {
+		locales.get(0).agregarPersona(votante);
 	}
 	
 	public void mostrarLocales() {
@@ -53,6 +49,27 @@ public class Region {
 		return;
 	}
 
+	public Local buscarLocal(int id) {
+		for(Local i : locales) {
+			if(i.getId() == id) {
+				return i;
+			}
+		}
+		return null;
+	}
+	
+	public void eliminarLocal(int id) {
+		int j = 0;
+		for(Local i : locales) {
+			if(i.getId() == id) {
+				locales.remove(j);
+				return;
+			}
+			j++;
+		}
+		return;
+	}
+	
 	public void searchLocal(String rut) {
 		for(Local i : locales) {
 			i.search(rut);
@@ -67,6 +84,13 @@ public class Region {
 			}
 			
 		}
+	}
+	
+	public boolean hayLocales() {
+		if(locales.size() == 0) {
+			return false;
+		}
+		return true;
 	}
 	
 }

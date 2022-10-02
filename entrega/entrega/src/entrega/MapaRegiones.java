@@ -11,8 +11,20 @@ public class MapaRegiones {
 		}
 	}
 
-	public void asignarLocal(Persona p, int region) {
-		mapa.get(region).asignarLocal(p);
+	public void asignarLocal(ListaPersonas p) {
+		boolean exit = false;
+		Persona aux;
+		while(!exit) {
+			aux = p.getCurrent();
+			if(aux != null) {
+				mapa.get(aux.getRegion()-1).asignarLocal(aux, aux.getRegion()-1);
+				p.deleteCurrent();
+			}else {
+				return;
+			}
+		}
+		
+		
 	}
 	
 	public void agregarLocal(Local local, int region) {
@@ -25,6 +37,15 @@ public class MapaRegiones {
 	
 	public void mostrarLocales(int region) {
 		mapa.get(region).mostrarLocales();
+	}
+	
+	public Local buscarLocal(int num, int id) {
+		if(mapa.get(num).buscarLocal(id) != null) {
+			return mapa.get(num).buscarLocal(id);
+		}else {
+			System.out.println("El local no existe");
+			return null;
+		}
 	}
 
 	

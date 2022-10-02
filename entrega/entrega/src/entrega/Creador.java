@@ -30,6 +30,8 @@ public class Creador {
 			in = lector.readLine();
 			votante.setAge(Integer.parseInt(in));
 			
+			votante.setCargo("Votante");
+			
 			return votante;
 		}else {
 			System.out.println("Region no válida");

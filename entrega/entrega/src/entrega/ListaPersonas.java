@@ -6,9 +6,13 @@ public class ListaPersonas {
 
 	
 	private ArrayList<Persona> personas;
+	private int size;
+	private int current;
 	
 	public ListaPersonas() {
 		personas = new ArrayList<Persona>();
+		size = 0;
+		current = 0;
 	}
 	
 	public void mostrarPorEdad(int min, int max) {
@@ -38,12 +42,37 @@ public class ListaPersonas {
 	
 	public void add(Persona p){
 		personas.add(p);
+		size++;
 		return;
 	}
 	
 	public void mostrarLista() {
 		for(Persona i: personas){
 			i.showData();
+		}
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public Persona getCurrent() {
+		if(size == 0) {
+			return null;
+		}
+		return personas.get(current);
+	}
+	
+	public void deleteCurrent() {
+		personas.remove(current);
+	}
+	
+	public boolean next() {
+		if(current < size) {
+			current++;
+			return true;
+		}else {
+			return false;
 		}
 	}
 }

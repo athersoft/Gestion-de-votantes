@@ -1,26 +1,19 @@
 package entrega;
 
-public class VocalDeMesa extends Persona{
+public class MiembroDeMesa extends Persona{
 	private String cargo;
 	private boolean presente;
 	
-	public VocalDeMesa() {
+	public MiembroDeMesa() {
 		cargo = "Ayudante";
 		presente = false;
 	}
 	
-	public VocalDeMesa(String a) {
+	public MiembroDeMesa(String a) {
 		cargo = a;
 		presente = false;
 	}
 
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
 
 	public boolean isPresente() {
 		return presente;
@@ -28,6 +21,14 @@ public class VocalDeMesa extends Persona{
 
 	public void setPresente(boolean presente) {
 		this.presente = presente;
+	}
+	
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 	
 	public void showData() {

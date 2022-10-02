@@ -48,8 +48,6 @@ public class Persona {
 		return numRegion;
 	}
 	
-	
-	
 	public void showData() {
 		System.out.println("Nombre: " + name);
 		System.out.println("Edad: " + age);

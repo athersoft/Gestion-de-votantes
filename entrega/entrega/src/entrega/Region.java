@@ -53,6 +53,15 @@ public class Region {
 		return;
 	}
 
+	public Local buscarLocal(int id) {
+		for(Local i : locales) {
+			if(i.getId() == id) {
+				return i;
+			}
+		}
+		return null;
+	}
+	
 	public void searchLocal(String rut) {
 		for(Local i : locales) {
 			i.search(rut);

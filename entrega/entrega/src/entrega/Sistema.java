@@ -88,7 +88,22 @@ public class Sistema {
 				}
 				
 				case "4":{
+					String aux;
+					System.out.println("Ingrese region");
+					in2 = lector.readLine();
+					System.out.println("Ingrese id de local a modificar");
+					aux = lector.readLine();
 					
+					Local local = regiones.buscarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+					if(local != null) {
+						local = crear.modificarLocal(local);
+					}
+					
+					regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+					
+					regiones.agregarLocal(local, Integer.parseInt(in2));
+					
+					break;
 				}
 				
 				///////////////Consultar local asignado////////////////////

@@ -47,6 +47,14 @@ public class MapaRegiones {
 			return null;
 		}
 	}
+	
+	public boolean eliminarLocal(int num, int id) {
+		if(mapa.get(num).buscarLocal(id) != null) {
+			mapa.get(num).eliminarLocal(id);
+			return true;
+		}
+		return false;
+	}
 
 	
 }

@@ -62,6 +62,18 @@ public class Region {
 		return null;
 	}
 	
+	public void eliminarLocal(int id) {
+		int j = 0;
+		for(Local i : locales) {
+			if(i.getId() == id) {
+				locales.remove(j);
+				return;
+			}
+			j++;
+		}
+		return;
+	}
+	
 	public void searchLocal(String rut) {
 		for(Local i : locales) {
 			i.search(rut);

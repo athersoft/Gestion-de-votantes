@@ -2,28 +2,70 @@ package entrega;
 
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
+
 import java.util.HashMap;
+
+import java.util.ArrayList; 
 
 public class Sistema {
 	
-/*	public static void leertxt(Persona bi) throws IOException{
-		String filePath = "personas.txt";
+	
+	public static void cargarNoInscritos(ListaPersonas p) throws IOException{
+		String filePath = "personasNoInscritas.txt";
 		
 		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
 		String lineText = null;
 		
 		while ((lineText = lectorTxt.readLine()) != null) {
+			Persona bi = new Persona();
 			String[] arr = lineText.split(",");
-			bi.setName(arr[0]);
-			bi.setRut(arr[1]);
+			bi.setRegion(Integer.parseInt(arr[0]));
+			bi.setName(arr[1]);
 			bi.setAge(Integer.parseInt(arr[2]));
-			
-			System.out.println(lineText);
+			bi.setRut(arr[3]);
+			p.add(bi);
 		}
 		
 		lectorTxt.close();
 	}
-*/
+	
+	public static void cargarInscritos(ListaPersonas p) throws IOException{
+		String filePath = "personasInscritas.txt";
+		
+		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
+		String lineText = null;
+		
+		while ((lineText = lectorTxt.readLine()) != null) {
+			Persona bi = new Persona();
+			String[] arr = lineText.split(",");
+			bi.setRegion(Integer.parseInt(arr[0]));
+			bi.setName(arr[1]);
+			bi.setAge(Integer.parseInt(arr[2]));
+			bi.setRut(arr[3]);
+			p.add(bi);
+		}
+		
+		lectorTxt.close();
+	}
+	
+	public static void cargarLocales(MapaRegiones regiones) throws IOException{
+		String filePath = "locales.txt";
+		
+		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
+		String lineText = null;
+		
+		while ((lineText = lectorTxt.readLine()) != null) {
+			Local local = new Local();
+			String[] arr = lineText.split(",");
+			local.setId(Integer.parseInt(arr[1]));
+			local.setCapacidad(Integer.parseInt(arr[2]));
+			local.setDireccion(arr[3]);
+			regiones.agregarLocal(local, Integer.parseInt(arr[0]));
+		}
+		
+		lectorTxt.close();
+	}
+	
 
 	public static void main( String arg[] ) throws IOException{
 		//Lector y variables para leer
@@ -38,6 +80,10 @@ public class Sistema {
 		ListaPersonas votantes = new ListaPersonas();
 		ListaPersonas votantesSinAsignar = new ListaPersonas();
 		Creador crear = new Creador();
+		
+		cargarNoInscritos(votantesSinAsignar);
+		cargarInscritos(votantes);
+		cargarLocales(regiones);
 		
 		while(!exit) {
 			//Opciones del menú
@@ -70,8 +116,7 @@ public class Sistema {
 				//////////////Asignar Votantes///////////////////
 				
 				case "2":{
-					regiones.asignarLocal(votantesSinAsignar);
-					
+					regiones.asignarPersonas(votantesSinAsignar,votantes);
 					break;
 				}
 				
@@ -150,10 +195,10 @@ public class Sistema {
 				
 				////////////////Mostrar todas las personas////////////
 				case "8":{
-					System.out.println("\nPersonas inscritas");
+					System.out.println("\n----------Personas inscritas------------");
 					votantes.mostrarLista();
 					
-					System.out.println("\nPersonas no inscritas");
+					System.out.println("\n------------Personas no inscritas-----------");
 					votantesSinAsignar.mostrarLista();
 					
 					break;
@@ -190,6 +235,10 @@ public class Sistema {
 				
 				case "10":{
 					exit = true;
+				}
+				
+				case "11":{
+					
 				}
 				
 			}

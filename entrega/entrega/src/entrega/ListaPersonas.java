@@ -63,11 +63,15 @@ public class ListaPersonas {
 		if(size == 0) {
 			return null;
 		}
+		if(current > (personas.size())-1) {
+			return null;
+		}
 		return personas.get(current);
 	}
 	
 	public void deleteCurrent() {
 		personas.remove(current);
+		size--;
 	}
 	
 	public boolean next() {
@@ -78,4 +82,32 @@ public class ListaPersonas {
 			return false;
 		}
 	}
+	
+	public boolean existe(String rut) {
+		for(Persona i : personas) {
+			if(i.getRut().equals(rut)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void agregarFiltrado(ListaPersonas a, ListaPersonas b) {
+		Persona aux;
+		while(true) {
+			if(a.getCurrent() != null) {
+				aux = a.getCurrent();
+				if(b.existe(aux.getRut()) == true) {
+					a.next();
+				}else {
+					this.add(aux);
+					a.next();
+				}
+			}else {
+				break;
+			}
+		}
+		return;
+	}
+	
 }

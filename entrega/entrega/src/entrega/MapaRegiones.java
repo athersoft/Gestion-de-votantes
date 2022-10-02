@@ -6,30 +6,36 @@ public class MapaRegiones {
 
 	public MapaRegiones() {
 		mapa = new HashMap<Integer,Region>();
-		for(int j = 0; j< 16; j++) {
+		for(int j = 1; j<= 16; j++) {
 			mapa.put(j, new Region(j, "") );
 		}
 	}
 
-	public void asignarLocal(ListaPersonas p) {
-		boolean exit = false;
+	public void asignarLocal(Persona p, int region) {
+		mapa.get(region).asignarLocal(p);
+	}
+	
+	public void asignarPersonas(ListaPersonas p, ListaPersonas a) {
 		Persona aux;
-		while(!exit) {
-			aux = p.getCurrent();
-			if(aux != null) {
+		while(true) {
+			if(p.getCurrent() != null) {
+				aux = p.getCurrent();
 				if(mapa.get(aux.getRegion()).hayLocales()) {
-					mapa.get(aux.getRegion()).asignarLocal(aux);
+					asignarLocal(aux, aux.getRegion());
+					a.add(aux);
 					p.deleteCurrent();
 				}else {
 					p.next();
 				}
 			}else {
-				return;
+				break;
 			}
 		}
-		
-		
+		return;
 	}
+	
+	
+	
 	
 	public void agregarLocal(Local local, int region) {
 		mapa.get(region).agregarLocal(local);

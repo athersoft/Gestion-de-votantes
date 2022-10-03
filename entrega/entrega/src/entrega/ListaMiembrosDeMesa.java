@@ -15,6 +15,9 @@ public class ListaMiembrosDeMesa extends ListaPersonas{
 		return;
 	}
 	
+	public int getSize() {
+		return miembros.size();
+	}
 	public void mostrarLista() {
 		for(MiembroDeMesa i: miembros){
 			i.showData();

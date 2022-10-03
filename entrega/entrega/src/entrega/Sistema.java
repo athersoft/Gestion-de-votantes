@@ -3,10 +3,6 @@ package entrega;
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
 
-import java.util.HashMap;
-
-import java.util.ArrayList; 
-
 public class Sistema {
 	
 	
@@ -113,18 +109,18 @@ public class Sistema {
 			
 				/////////////Inscribir Votante//////////////////////
 				case "1":{
-					
+					System.out.println("\n--------Inscripcion de votante--------\n");
 					Persona votante = crear.persona();
 					votantesSinAsignar.add(votante);
 					
 					break;
-					
 				}
 				
 				//////////////Asignar Votantes///////////////////
 				
 				case "2":{
 					regiones.asignarPersonas(votantesSinAsignar,votantes);
+					System.out.println("\n--------Votantes Asignados---------\n");
 					break;
 				}
 				
@@ -148,8 +144,7 @@ public class Sistema {
 					myWriter.append("\n");
 					myWriter.close();
 					 
-					System.out.println("Local agregado correctamente");
-					
+					System.out.println("\n--------Local agregado correctamente---------\n");
 					break;
 				}
 				
@@ -175,10 +170,13 @@ public class Sistema {
 						local = crear.modificarLocal(local);
 					}
 					
-					regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+					ListaPersonas l;
+					l = regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
 					
 					regiones.agregarLocal(local, Integer.parseInt(in2));
+					regiones.asignarPersonas(l);
 					
+					System.out.println("\n--------Modificacion Exitosa---------\n");
 					break;
 				}
 				
@@ -198,11 +196,12 @@ public class Sistema {
 						}
 					
 					if(regiones.buscarLocal(Integer.parseInt(in2), Integer.parseInt(aux)) != null) {
-						regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+						ListaPersonas l;
+						l = regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
+						votantesSinAsignar.agregarLista(l);
 					}
 					
-					System.out.println("Local Eliminado");
-					
+					System.out.println("\n--------Local Eliminado---------\n");
 					break;
 				}
 				
@@ -273,24 +272,11 @@ public class Sistema {
 					break;
 				}
 				
-				/*
-				case "5":{
-					System.out.println("Ingrese numero de region a buscar");
-					in2 = lector.readLine();
-
-					String aux;
-					System.out.println("Ingrese la id del local");
-					aux = lector.readLine();
-					int id;
-					id = Integer.parseInt(aux);
-					
-					regiones.get(Integer.parseInt(in2)).searchLocal(id);
-				}
-				*/
-				
+				///////////Salir///////////////
 				case "10":{
 					votantes.guardar("personasInscritas.txt");
 					votantesSinAsignar.guardar("personasNoInscritas.txt");
+					System.out.println("\n--------Programa Terminado---------\n");
 					exit = true;
 				}
 				

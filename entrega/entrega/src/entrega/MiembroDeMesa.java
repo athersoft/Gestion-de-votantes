@@ -32,7 +32,7 @@ public class MiembroDeMesa extends Persona{
 	}
 	
 	public void showData() {
-		System.out.println("Nombre: " + getName());
+		System.out.println("\nNombre: " + getName());
 		System.out.println("Edad: " + getAge());
 		System.out.println("Rut: " + getRut());
 		System.out.println("Cargo: " + cargo);

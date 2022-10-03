@@ -71,12 +71,12 @@ public class MapaRegiones {
 		}
 	}
 	
-	public boolean eliminarLocal(int num, int id) {
+	public ListaPersonas eliminarLocal(int num, int id) {
 		if(mapa.get(num).buscarLocal(id) != null) {
-			mapa.get(num).eliminarLocal(id);
-			return true;
+			ListaPersonas p = mapa.get(num).eliminarLocal(id);
+			return p;
 		}
-		return false;
+		return null;
 	}
 
 	

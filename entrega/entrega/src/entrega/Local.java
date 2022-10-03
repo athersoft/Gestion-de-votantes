@@ -1,5 +1,5 @@
 package entrega;
-import java.util.*;
+
 public class Local {
 	private String direccion;
 	private int id;
@@ -56,6 +56,17 @@ public class Local {
 	
 	public void agregarPersona(Persona p) {
 		votantes.add(p);
+		
+		if(miembros.getSize() < 3) {
+			MiembroDeMesa miembro = new MiembroDeMesa();
+			miembro.setName(p.getName());
+			miembro.setAge(p.getAge());
+			miembro.setRut(p.getRut());
+			miembro.setCargo("Vocal de mesa");
+			miembro.setPresente(true);
+			miembros.add(miembro);
+		}
+		
 		inscritos++;
 		return;
 	}
@@ -80,6 +91,10 @@ public class Local {
 	
 	public void mostrarMiembros() {
 		miembros.mostrarLista();
+	}
+	
+	public ListaPersonas getPersonas() {
+		return votantes;
 	}
 	
 	public void showData(){

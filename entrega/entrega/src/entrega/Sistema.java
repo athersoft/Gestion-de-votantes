@@ -70,9 +70,9 @@ public class Sistema {
 	public static void main( String arg[] ) throws IOException{
 		//Lector y variables para leer
 		BufferedReader lector = new BufferedReader( new InputStreamReader( System.in ) );
-		String in;
-		String in2;
-		
+		String in = null;
+		String in2 = null;
+		String aux = null;
 		boolean exit = false;
 		
 		//Inicializar regiones
@@ -101,7 +101,13 @@ public class Sistema {
 			System.out.println("8-Mostrar personas en el sistema");
 			System.out.println("9-Mostrar votantes por rango de edad");
 			System.out.println("10-Salir");
-			in = lector.readLine();
+
+			try {
+				in = lector.readLine( );
+				} catch( IOException e ) {
+				System.out.println( "Error de input." );
+				}
+			//in = lector.readLine();
 			
 			switch (in){
 			
@@ -126,7 +132,11 @@ public class Sistema {
 				case "3":{
 					Local local = crear.local();
 					System.out.println("Ingrese numero de region");
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					
 					regiones.agregarLocal(local, Integer.parseInt(in2));
 					
@@ -145,11 +155,20 @@ public class Sistema {
 				
 				///////////////Modificar local de votacion////////////////
 				case "4":{
-					String aux;
+					
 					System.out.println("Ingrese region");
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					System.out.println("Ingrese id de local a modificar");
 					aux = lector.readLine();
+					try {
+						aux = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					
 					Local local = regiones.buscarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
 					if(local != null) {
@@ -165,11 +184,18 @@ public class Sistema {
 				
 				///////////////Eliminar local//////////////////////////
 				case "5":{
-					String aux;
 					System.out.println("Ingrese region");
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					System.out.println("Ingrese id de local a eliminar");
-					aux = lector.readLine();
+					try {
+						aux = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					
 					if(regiones.buscarLocal(Integer.parseInt(in2), Integer.parseInt(aux)) != null) {
 						regiones.eliminarLocal(Integer.parseInt(in2), Integer.parseInt(aux));
@@ -183,11 +209,19 @@ public class Sistema {
 				///////////////Consultar local asignado////////////////////
 				case "6":{
 					System.out.println("Ingrese rut a buscar");
-					String aux;
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 
 					System.out.println("Ingrese la region a la que pertenece: ");
-					aux = lector.readLine();
+					
+					try {
+						aux = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					regiones.buscarEnLocal(in2, Integer.parseInt(aux));
 
 					break;
@@ -198,7 +232,11 @@ public class Sistema {
 				///////////////////Mostrar locales de una region////////////////////
 				case "7":{
 					System.out.println("Ingrese numero de region a buscar");
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					regiones.mostrarLocales(Integer.parseInt(in2));
 					break;
 				}
@@ -217,11 +255,18 @@ public class Sistema {
 				
 				//////////////////Mostrar Personas en un rango de edad//////////////
 				case "9":{
-					String aux;
 					System.out.println("Ingrese minima edad a mostrar");
-					in2 = lector.readLine();
+					try {
+						in2 = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					System.out.println("Ingrese maxima edad a mostrar");
-					aux = lector.readLine();
+					try {
+						aux = lector.readLine( );
+						} catch( IOException e ) {
+						System.out.println( "Error de input." );
+						}
 					
 					votantes.mostrarPorEdad(Integer.parseInt(in2), Integer.parseInt(aux));
 					

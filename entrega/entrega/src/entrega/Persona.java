@@ -52,6 +52,7 @@ public class Persona {
 		System.out.println("\nNombre: " + name);
 		System.out.println("Edad: " + age);
 		System.out.println("Rut: " + rut);
+		System.out.println("region: "+ numRegion);
 		return;
 	}
 	

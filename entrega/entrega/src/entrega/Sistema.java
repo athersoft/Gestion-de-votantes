@@ -8,7 +8,14 @@ public class Sistema {
 	
 	public static void cargarNoInscritos(ListaPersonas p) throws IOException{
 		String filePath = "personasNoInscritas.txt";
-		
+		try{
+
+			throw new FilesException();
+		}catch(FilesException a){
+			if(a.UnsupportedMediaException(filePath) == true){
+				System.exit(0);
+			}
+		}
 		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
 		String lineText = null;
 		
@@ -21,13 +28,21 @@ public class Sistema {
 			bi.setRut(arr[3]);
 			p.add(bi);
 		}
-		
 		lectorTxt.close();
+		
+
 	}
 	
 	public static void cargarInscritos(ListaPersonas p) throws IOException{
 		String filePath = "personasInscritas.txt";
-		
+		try{
+
+			throw new FilesException();
+		}catch(FilesException a){
+			if(a.UnsupportedMediaException(filePath) == true){
+				System.exit(0);
+			}
+		}
 		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
 		String lineText = null;
 		
@@ -46,7 +61,14 @@ public class Sistema {
 	
 	public static void cargarLocales(MapaRegiones regiones) throws IOException{
 		String filePath = "locales.txt";
-		
+		try{
+
+			throw new FilesException();
+		}catch(FilesException a){
+			if(a.UnsupportedMediaException(filePath) == true){
+				System.exit(0);
+			}
+		}
 		BufferedReader lectorTxt = new BufferedReader( new FileReader( filePath ) );
 		String lineText = null;
 		

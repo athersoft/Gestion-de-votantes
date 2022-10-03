@@ -94,17 +94,13 @@ public class ListaPersonas {
 		return false;
 	}
 	
-	public void agregarFiltrado(ListaPersonas a, ListaPersonas b) {
+	public void agregarLista(ListaPersonas a){
 		Persona aux;
 		while(true) {
 			if(a.getCurrent() != null) {
 				aux = a.getCurrent();
-				if(b.existe(aux.getRut()) == true) {
-					a.next();
-				}else {
-					this.add(aux);
-					a.next();
-				}
+				this.add(aux);
+				a.next();
 			}else {
 				break;
 			}

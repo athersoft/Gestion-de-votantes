@@ -93,6 +93,10 @@ public class Local {
 		miembros.mostrarLista();
 	}
 	
+	public ListaPersonas getPersonas() {
+		return votantes;
+	}
+	
 	public void showData(){
 		System.out.println("id: " + id);
 		System.out.println("Capacidad: " + capacidad);

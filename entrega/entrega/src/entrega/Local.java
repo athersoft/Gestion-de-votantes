@@ -1,5 +1,5 @@
 package entrega;
-import java.util.*;
+
 public class Local {
 	private String direccion;
 	private int id;

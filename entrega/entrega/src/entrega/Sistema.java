@@ -3,10 +3,6 @@ package entrega;
 //Integrantes: Bryam Gonzalez, Matías Romero, Eduardo Marín
 import java.io.*;
 
-import java.util.HashMap;
-
-import java.util.ArrayList; 
-
 public class Sistema {
 	
 	

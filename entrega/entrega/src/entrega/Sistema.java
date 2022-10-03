@@ -112,7 +112,6 @@ public class Sistema {
 					votantesSinAsignar.add(votante);
 					
 					break;
-					
 				}
 				
 				//////////////Asignar Votantes///////////////////

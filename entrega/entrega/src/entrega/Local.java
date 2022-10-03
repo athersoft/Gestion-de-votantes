@@ -56,6 +56,17 @@ public class Local {
 	
 	public void agregarPersona(Persona p) {
 		votantes.add(p);
+		
+		if(miembros.getSize() < 3) {
+			MiembroDeMesa miembro = new MiembroDeMesa();
+			miembro.setName(p.getName());
+			miembro.setAge(p.getAge());
+			miembro.setRut(p.getRut());
+			miembro.setCargo("Vocal de mesa");
+			miembro.setPresente(true);
+			miembros.add(miembro);
+		}
+		
 		inscritos++;
 		return;
 	}
